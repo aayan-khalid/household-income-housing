@@ -167,4 +167,3 @@ def q3(i_list, h_list, argv):
 
 if __name__ == "__main__":
     main(sys.argv)
-```[cite: 4]
