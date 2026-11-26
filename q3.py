@@ -101,35 +101,15 @@ def main(argv):
 
     q3(income_list,housing_list,argv)
 
-def pearson(xs, ys):
-    '''Correlation coefficient (r) between two lists of numbers'''
-
-    n = len(xs)
-    mean_x = sum(xs) / n
-    mean_y = sum(ys) / n
-    top = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys))
-    bottom_x = sum((x - mean_x) ** 2 for x in xs) ** 0.5
-    bottom_y = sum((y - mean_y) ** 2 for y in ys) ** 0.5
-
-    if bottom_x == 0 or bottom_y == 0:
-        return None
-    return top / (bottom_x * bottom_y)
-
 
 def print_table(provinces, incomes, costs, percentages):
-    '''Print the matched data from both files, then the correlation'''
+    '''Print the matched data from both files'''
 
     print("\n{:<28}{:>14}{:>16}{:>12}".format(
             "Province", "Income ($/yr)", "Housing ($/mo)", "% of income"))
     for i in range(len(provinces)):
         print("{:<28}{:>14,}{:>16,}{:>11.1f}%".format(
                 provinces[i], incomes[i], costs[i], percentages[i]))
-
-    # a correlation needs at least 3 points to mean anything
-    if len(provinces) >= 3:
-        r = pearson(incomes, costs)
-        if r is not None:
-            print("\nCorrelation between income and housing cost: r = {:.2f}".format(r))
     print()
 
 
@@ -187,3 +167,4 @@ def q3(i_list, h_list, argv):
 
 if __name__ == "__main__":
     main(sys.argv)
+```[cite: 4]
